@@ -106,31 +106,9 @@ set(LIB_PATHS
 # allow linking with local libraries
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
-set(INCLUDE_PATHS
-    ${CMAKE_CURRENT_SOURCE_DIR}/build
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${GUACAMOLE_INCLUDE_DIRS}
-    ${GUACAMOLE_GUI_INCLUDE_DIRS}
-    ${GUACAMOLE_VOLUME_INCLUDE_DIRS}
-    ${GUACAMOLE_PLOD_INCLUDE_DIRS}
-    ${GL_INCLUDE_DIRS}
-)
-
-if (AVANGO_OCULUS_RIFT_SUPPORT)
-  list(APPEND LIB_PATHS ${OVR_LIBRARY_DIRS})
-  list(APPEND INCLUDE_PATHS ${OVR_INCLUDE_DIRS})
-endif(AVANGO_OCULUS_RIFT_SUPPORT)
-
-include_directories(ALL
-                    ${INCLUDE_PATHS}
-)
-
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release")
 endif()
-
-
-
 ################################################################
 # preprocessor configuration
 ################################################################
